@@ -1,15 +1,11 @@
 'use strict';
-
+// data
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min; // via MDN docs
-}
 var cookieTable = document.getElementById('allCookies');
 var allStores = [];
 
 
-// Constructor Function
+// Constructor Function which is part of data
 function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, custsEachHour,cookiesEachHour,totalDailySales){
   this.name = name;
   this.minCustsPerHour = minCustsPerHour;
@@ -19,61 +15,92 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
   this.cookiesEachHour = [];
   this.totalDailySales = 0;
   allStores.push(this);
-  this.calcCustsEachHour = function(){
-    for(var i = 0; i < hours.length; i++){
-      this.custsEachHour.push(random(this.minCustsPerHour, this.maxCustsPerHour));
-    }
-  };
-  this.calcCookiesEachHour = function(){
-    this.calcCustsEachHour();
-    for(var i = 0; i < hours.length; i++){
-      var oneHour = Math.ceil(this.custsEachHour[i] * this.avgCookiesPerCust);
-      this.cookiesEachHour.push(oneHour);
-      this.totalDailySales += oneHour;
-    }
-
-  };
-  this.render = function(){
-    this.calcCookiesEachHour();
-
-    //  var allCookies = document.getElementById('allCookies');
-
-    var headrow = document.createElement('tr');
-
-    var locationNameCol = document.createElement('th');
-    locationNameCol.innerText = 'Location Name';
-    headrow.appendChild(locationNameCol);
-
-    for(var i = 0; i < hours.length; i++){
-      var timeCol = document.createElement('th');
-      timeCol.innerText = hours[i];
-      headrow.appendChild(timeCol);
-    };
-
-    var totalsCol = document.createElement('th');
-    totalsCol.innerText = 'Totals';
-    headrow.appendChild(totalsCol);
-
-    // append the trheadrow to the table
-    cookieTable.appendChild(headrow);
-  };
-
-  //};
-
-};
-//var cookieTable = document.getElementById('allCookies');
-
-allStores.push(this);
-this.render = function() {
-
-};
-
+}
+// these are part of data - look up name or description
 new NewStores('1st and Pike', 23, 65, 6.3);
 new NewStores('SeaTac Airport', 3, 24, 1.2);
 new NewStores('Seattle Center', 11, 38, 3.7);
 new NewStores('Capitol Hill', 20, 38, 2.3);
 new NewStores('Alki', 2, 16, 4.6);
 
+
+//put all actions here.  figure it out later called define or declared
+
+NewStores.prototype.calcCustsEachHour = function(){
+  for(var i = 0; i < hours.length; i++){
+    this.custsEachHour.push(random(this.minCustsPerHour, this.maxCustsPerHour));
+  }
+};
+
+NewStores.prototype.calcCookiesEachHour = function(){
+  this.calcCustsEachHour();
+  for(var i = 0; i < hours.length; i++){
+    var oneHour = Math.ceil(this.custsEachHour[i] * this.avgCookiesPerCust);
+    this.cookiesEachHour.push(oneHour);
+    this.totalDailySales += oneHour;
+  }
+};
+
+NewStores.prototype.render = function(){
+  this.calcCookiesEachHour();
+  // make table here.  Is this an action?????
+  // create tr
+  // create td
+  //function buildInfoRow(){
+
+
+  var storeRow = document.createElement('tr');
+
+  var storeName = document.createElement('th');
+  storeName.textContent = this.name;
+  storeRow.appendChild(storeName);
+
+
+  // create tds, give them content, append for hourly numbers
+  for(var i = 0; i < hours.length; i++) {
+    var storeSales = document.createElement('td');
+    storeSales.textContent = this.cookiesEachHour[i];
+    storeRow.appendChild(storeSales);
+  }
+
+  var storeDaily = document.createElement('td');
+  storeDaily.textContent = this.totalDailySales;
+  storeRow.appendChild(storeDaily);
+
+  // Dont forget append the tr to the table
+  cookieTable.appendChild(storeRow);
+};
+
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function buildHeadRow(){
+
+  var headrow = document.createElement('tr');
+
+  var locationNameCol = document.createElement('th');
+  locationNameCol.textContent = 'Location Name';
+  headrow.appendChild(locationNameCol);
+
+  for(var i = 0; i < hours.length; i++){
+    var timeCol = document.createElement('th');
+    timeCol.textContent = hours[i];
+    headrow.appendChild(timeCol);
+  }
+
+  var totalsCol = document.createElement('th');
+  totalsCol.textContent = 'Totals';
+  headrow.appendChild(totalsCol);
+
+  // append the trheadrow to the table
+  cookieTable.appendChild(headrow);
+}
+
+
+buildHeadRow();
+
 for(var i = 0; i < allStores.length; i++){
   allStores[i].render();
-};
+}
