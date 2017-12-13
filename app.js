@@ -34,37 +34,36 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
   this.render = function(){
     this.calcCookiesEachHour();
 
-  };
-}
+    var headrow = document.createElement('tr');
+    var locationNameCol = document.createElement('th');
+    locationNameCol.innertext = 'Location Name';
+    headrow.appendChild(locationNameCol);
 
-    //  access the element in the DOM where our stuff will go
-      var ulEl = document.getElementById('id');
-      // console.log(ulEl, 'ulEl');
+    for(var i = 0; i < hours.length; i++){
+      var timeCol = document.createElement('th');
+      timeCol.innertext = hours[i];
+      headrow.appendChild(timeCol);
+    };
 
-        // create an element
-        var liEl = document.createElement('li');
+    var totalsCol = document.createElement('th');
+    totalsCol.innertext = 'Totals';
+    headrow.appendChild(totalsCol);
 
-        // give it content
-        // 11am: 77 cookies
-        liEl.textContent = hours[i] + ': ' + this.cookiesEachHour[i] + ' cookies';
-
-        // append it to the parent
-        ulEl.appendChild(liEl);
-      //}
-      liEl = document.createElement('li');
-      liEl.textContent = 'Total: ' + this.totalDailySales + ' cookies';
-      ulEl.appendChild(liEl);
-},
-render: function(){
-      this.calcCookiesEachHour();
-}
-
+    // append the tr to the table
+    cookiesTable.appendChild(headrow);
   };
 
 
+//};
 
+};
+// We need to access the table that is in the DOM (how do we loop this into the html using id?)
+var cookieTable = document.getElementById('allCookies');
 
+NewStores.push(this);
+this.render = function() {
 
+};
 
 new NewStores('1st and Pike', 23, 65, 6.3);
 new NewStores('SeaTac Airport', 3, 24, 1.2);
