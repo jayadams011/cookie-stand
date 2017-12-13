@@ -8,6 +8,7 @@ function random(min, max) {
 var cookieTable = document.getElementById('allCookies');
 var allStores = [];
 
+
 // Constructor Function
 function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, custsEachHour,cookiesEachHour,totalDailySales){
   this.name = name;
@@ -38,18 +39,19 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
     //  var allCookies = document.getElementById('allCookies');
 
     var headrow = document.createElement('tr');
+
     var locationNameCol = document.createElement('th');
-    locationNameCol.innertext = 'Location Name';
+    locationNameCol.innerText = 'Location Name';
     headrow.appendChild(locationNameCol);
 
     for(var i = 0; i < hours.length; i++){
       var timeCol = document.createElement('th');
-      timeCol.innertext = hours[i];
+      timeCol.innerText = hours[i];
       headrow.appendChild(timeCol);
     };
 
     var totalsCol = document.createElement('th');
-    totalsCol.innertext = 'Totals';
+    totalsCol.innerText = 'Totals';
     headrow.appendChild(totalsCol);
 
     // append the trheadrow to the table
@@ -59,7 +61,6 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
   //};
 
 };
-// We need to access the table that is in the DOM (how do we loop this into the html using id?)
 //var cookieTable = document.getElementById('allCookies');
 
 allStores.push(this);
