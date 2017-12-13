@@ -5,6 +5,7 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; // via MDN docs
 }
+var cookieTable = document.getElementById('allCookies');
 var allStores = [];
 
 // Constructor Function
@@ -34,6 +35,8 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
   this.render = function(){
     this.calcCookiesEachHour();
 
+    //  var allCookies = document.getElementById('allCookies');
+
     var headrow = document.createElement('tr');
     var locationNameCol = document.createElement('th');
     locationNameCol.innertext = 'Location Name';
@@ -49,18 +52,17 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
     totalsCol.innertext = 'Totals';
     headrow.appendChild(totalsCol);
 
-    // append the tr to the table
-    cookiesTable.appendChild(headrow);
+    // append the trheadrow to the table
+    cookieTable.appendChild(headrow);
   };
 
-
-//};
+  //};
 
 };
 // We need to access the table that is in the DOM (how do we loop this into the html using id?)
-var cookieTable = document.getElementById('allCookies');
+//var cookieTable = document.getElementById('allCookies');
 
-NewStores.push(this);
+allStores.push(this);
 this.render = function() {
 
 };
@@ -71,7 +73,6 @@ new NewStores('Seattle Center', 11, 38, 3.7);
 new NewStores('Capitol Hill', 20, 38, 2.3);
 new NewStores('Alki', 2, 16, 4.6);
 
-
 for(var i = 0; i < allStores.length; i++){
   allStores[i].render();
-}
+};

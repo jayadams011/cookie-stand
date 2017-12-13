@@ -1,3 +1,23 @@
+* {
+  font-family: 'Roboto', cursive;
+}
+
 body {
-  background-color; #b26731;
+  background: #ccc;
+}
+
+table {
+	border: 10px solid black;
+}
+
+tr {
+	padding: 10px;
+	border-radius: 15px;
+  border: 1px solid black;
+  background: white;
+}
+
+th {
+	background-color: navy;
+	color: white;
 }
