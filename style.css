@@ -1,6 +1,19 @@
 * {
-  font-family: 'Roboto', cursive;
-}
+  font-family: 'Roboto', Verdana, sans-serif;
+text-align: center;}
+
+#nav, #feature, .article, #footer {
+  background color: #teal;
+  marging-top: 20px;
+  padding 10px 0px 5px 0px;}
+
+#feature, .article {
+  height: 200px;}
+
+  li {
+    display: block;
+    padding: 5px;}
+
 
 body {
   background: #b2d8d8;
