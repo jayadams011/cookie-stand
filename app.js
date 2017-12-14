@@ -11,12 +11,13 @@ function NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust, cu
   this.minCustsPerHour = minCustsPerHour;
   this.maxCustsPerHour = maxCustsPerHour;
   this.avgCookiesPerCust = avgCookiesPerCust;
+  this.DailySales = [];
   this.custsEachHour = [];
   this.cookiesEachHour = [];
   this.totalDailySales = 0;
   allStores.push(this);
 }
-// these are part of data - look up name or description
+// these are part of data - object instantiators They can go inot a var
 new NewStores('1st and Pike', 23, 65, 6.3);
 new NewStores('SeaTac Airport', 3, 24, 1.2);
 new NewStores('Seattle Center', 11, 38, 3.7);
