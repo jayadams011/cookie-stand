@@ -24,7 +24,7 @@ new NewStores('Capitol Hill', 20, 38, 2.3);
 new NewStores('Alki', 2, 16, 4.6);
 
 
-//put all actions here.  figure it out later called define or declared
+//put all actions here.  figure it out later -called define or declared -
 
 NewStores.prototype.calcCustsEachHour = function(){
   for(var i = 0; i < hours.length; i++){
@@ -43,12 +43,11 @@ NewStores.prototype.calcCookiesEachHour = function(){
 
 NewStores.prototype.render = function(){
   this.calcCookiesEachHour();
+
   // make table here.  Is this an action?????
   // create tr
   // create td
   //function buildInfoRow(){
-
-
   var storeRow = document.createElement('tr');
 
   var storeName = document.createElement('th');
@@ -69,6 +68,7 @@ NewStores.prototype.render = function(){
 
   // Dont forget append the tr to the table
   cookieTable.appendChild(storeRow);
+
 };
 
 
@@ -78,29 +78,57 @@ function random(min, max) {
 
 function buildHeadRow(){
 
-  var headrow = document.createElement('tr');
+  var headRow = document.createElement('tr');
 
   var locationNameCol = document.createElement('th');
   locationNameCol.textContent = 'Location Name';
-  headrow.appendChild(locationNameCol);
+  headRow.appendChild(locationNameCol);
 
   for(var i = 0; i < hours.length; i++){
     var timeCol = document.createElement('th');
     timeCol.textContent = hours[i];
-    headrow.appendChild(timeCol);
+    headRow.appendChild(timeCol);
   }
 
   var totalsCol = document.createElement('th');
   totalsCol.textContent = 'Totals';
-  headrow.appendChild(totalsCol);
+  headRow.appendChild(totalsCol);
 
   // append the trheadrow to the table
-  cookieTable.appendChild(headrow);
+  cookieTable.appendChild(headRow);
 }
 
+function buildFooter(){
+  var footRow = document.createElement('tr');
+
+  var hourTotals = document.createElement('tfoot');
+  hourTotals.textContent = 'Totals';
+  footRow.appendChild(hourTotals);
+
+  // for(var i = 0; i < stores[i]; i++){
+  //   var totalsHourSales = 0;
+  //   var totalHoursTot = document.createElement('th');
+  //   totalHoursTot.textContent = totalsHourSales[i];
+  //   footRow.appendChild(hourtotals);
+  //}
+
+  //   var
+  // };
+
+
+  cookieTable.appendChild(footRow);
+};
+
+//function buildData(){
+//  for(var i = 0; i <allStores.length; i++){
+//    allStores[i].render();
+//}
+//}
 
 buildHeadRow();
 
 for(var i = 0; i < allStores.length; i++){
   allStores[i].render();
 }
+
+buildFooter();
