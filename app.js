@@ -25,28 +25,25 @@ new NewStores('Seattle Center', 11, 38, 3.7);
 new NewStores('Capitol Hill', 20, 38, 2.3);
 new NewStores('Alki', 2, 16, 4.6);
 
- //function makeHeaderRow(){
-//function renderform(){
+function formData() {
 
-function formInput(event){
   event.preventDefault();
 
   var name = event.target.name.value;
   var minCustsPerHour = event.target.minCustsPerHour.value;
   var maxCustsPerHour = event.target.maxCustsPerHour.value;
   var avgCookiesPerCust = event.target.avgCookiesPerCust.value;
-  allStores.push(new NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust));
-    form.reset();
+
+  new NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust);
+  formData.push(new NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust));
+  formData();
+  form.reset();
 
 
-}
-//formInput();
-//}
-//  renderform();
- //};
- //makeHeaderRow();
 
-  form.addEventListener('submit',formInput);
+};
+
+//form.addEventListener('submit',formData);
 
 
 //put all actions here.  figure it out later -called define or declared -
@@ -156,5 +153,5 @@ for(var i = 0; i < allStores.length; i++){
   allStores[i].render();
 };
 
-
+form.addEventListener('submit', formData);
 // buildFooter();
