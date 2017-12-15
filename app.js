@@ -2,6 +2,7 @@
 // data
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var cookieTable = document.getElementById('allCookies');
+var form = document.getElementById('shop_data_form');
 var allStores = [];
 
 
@@ -23,6 +24,29 @@ new NewStores('SeaTac Airport', 3, 24, 1.2);
 new NewStores('Seattle Center', 11, 38, 3.7);
 new NewStores('Capitol Hill', 20, 38, 2.3);
 new NewStores('Alki', 2, 16, 4.6);
+
+ //function makeHeaderRow(){
+//function renderform(){
+
+function formInput(event){
+  event.preventDefault();
+
+  var name = event.target.name.value;
+  var minCustsPerHour = event.target.minCustsPerHour.value;
+  var maxCustsPerHour = event.target.maxCustsPerHour.value;
+  var avgCookiesPerCust = event.target.avgCookiesPerCust.value;
+  allStores.push(new NewStores(name, minCustsPerHour, maxCustsPerHour, avgCookiesPerCust));
+    form.reset();
+
+
+}
+//formInput();
+//}
+//  renderform();
+ //};
+ //makeHeaderRow();
+
+  form.addEventListener('submit',formInput);
 
 
 //put all actions here.  figure it out later -called define or declared -
@@ -99,26 +123,26 @@ function buildHeadRow(){
   cookieTable.appendChild(headRow);
 }
 
-function buildFooter(){
-  var footRow = document.createElement('tr');
-
-  var hourTotals = document.createElement('tfoot');
-  hourTotals.textContent = 'Totals';
-  footRow.appendChild(hourTotals);
-
-  // for(var i = 0; i < stores[i]; i++){
-  //   var totalsHourSales = 0;
-  //   var totalHoursTot = document.createElement('th');
-  //   totalHoursTot.textContent = totalsHourSales[i];
-  //   footRow.appendChild(hourtotals);
-  //}
-
-  //   var
-  // };
-
-
-  cookieTable.appendChild(footRow);
-};
+// function buildFooter(){
+//   var footRow = document.createElement('tr');
+//
+//   var hourTotals = document.createElement('tfoot');
+//   hourTotals.textContent = 'Totals';
+//   footRow.appendChild(hourTotals);
+//
+//   // for(var i = 0; i < stores[i]; i++){
+//   //   var totalsHourSales = 0;
+//   //   var totalHoursTot = document.createElement('th');
+//   //   totalHoursTot.textContent = totalsHourSales[i];
+//   //   footRow.appendChild(hourtotals);
+//   //}
+//
+//   //   var
+//   // };
+//
+//
+//   cookieTable.appendChild(footRow);
+// };
 
 //function buildData(){
 //  for(var i = 0; i <allStores.length; i++){
@@ -130,6 +154,7 @@ buildHeadRow();
 
 for(var i = 0; i < allStores.length; i++){
   allStores[i].render();
-}
+};
 
-buildFooter();
+
+// buildFooter();

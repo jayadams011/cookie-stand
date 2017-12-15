@@ -2,12 +2,9 @@
   font-family: 'Roboto', Verdana, sans-serif;
 text-align: center;}
 
- #feature, .article, #footer {
-  background color: #teal;
-  margin-top: 20px;
-  padding 10px 0px 5px 0px;
+body {
+  background-color: teal;
 }
-
 #feature, .article {
   height: 200px;
 }
@@ -17,6 +14,7 @@ text-align: center;}
       width: 300px;
       border: 3px solid black;
       padding: 10px;
+
   }
 
   #headBanner {
@@ -25,7 +23,7 @@ text-align: center;}
 
   }
 
-  .right {
+  #article grid_1 {
       float: right;
       width: 300px;
       border: 3px solid #73AD21;
@@ -36,6 +34,16 @@ text-align: center;}
     border: solid 1px #000;
     padding: 8px 18px;
     font-size: 18px;
+    background: #000;
+    color: #fff;
+  }
+
+  input[type="number"] {
+    border: solid 1px #000;
+    padding: 8px 18px;
+    font-size: 18px;
+    background: #000;
+    color: #fff;
   }
 
   button {
@@ -56,14 +64,34 @@ li {
 
 h1 {
   background: teal;
+  border: 20px solid #ffa07a;
+  background: #000;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 20px;
+  margin: 20px;
+
 }
 
 h2 {
   background: teal;
+  border: 20px solid #ffa07a;
+  background: #000;
+  color: #fff;
+  padding: 4px 12px;
+  margin: 20px;
+
 }
+
 
 table {
 	border: 20px solid #ffa07a;
+  background: #000;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 20px;
+  margin: 40px;
+
 }
 
 tr {
@@ -86,6 +114,23 @@ td{
 
 tfoot{
   padding: 10px;
-  border: 3px solid black;
-  background: #b2d8d8;
+  /*border: 3px solid black;
+  background: #b2d8d8;*/
+  color: #000;
 }
+
+button {
+  border: none;
+  border-radius: 3px;
+  background: #000;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  padding: 20px;
+  }
