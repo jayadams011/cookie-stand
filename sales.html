@@ -8,36 +8,38 @@
   </head>
   <body>
 
-    <main>
-          <div>
-            <h1>Pat's Salmon Cookies: Sales Data</h1>
-              <h2>Cookies Needed By Location Each Day</h2>
-                <table id="allCookies"></table>
-          </div>
-          <div>
-            <form = id="shop_data_form">
-              <fieldset>
-                <label for ="name">Location:</label>
-                <input type="text" name="locations" placeholder="Enter store location name" minlength="4">
-              </fieldset>
-              <fieldset>
-                <label for ="minCustsPerHour">Min cust an hour?:</label>
-                <input type="number" name="minCustsPerHour" placeholder="Enter minimum customers an hour for that store" minlength="1" min="0">
-              </fieldset>
-              <fieldset>
-                <label for ="maxCustsPerHour">max cust an hour?:</label>
-                <input type="number" name="maxCustsPerHour" placeholder="Enter maximum customers an hour for that store" minlength="1" min="0">
-              </fieldset>
-              <fieldset>
-                <label for ="avgCookiesPerCust">Avg Cookies per Cust?:</label>
-                <input type="number"  name="avgCookiesPerCust" placeholder="Enter the average number of cookies per customers for that store" minlength="1" step="any" min=0>
-              </fieldset>
-              <button id="submit_btn" type="submit">add store info</button>
-            </form>
-    </main>
+    <div>
+      <h1>Pat's Salmon Cookies: Sales Data</h1>
+      <h2>Cookies Needed By Location Each Day</h2>
+      <table id="allCookies"></table>
+    </div>
+
+    <div>
+      <form id="shop_data_form">
+        <fieldset>
+          <label for ="name">Location:</label>
+          <input type="text" name="name" placeholder="Enter store location name" minlength="4">
+        </fieldset>
+        <fieldset>
+          <label for ="minCustsPerHour">Min cust an hour?:</label>
+          <input type="number" name="minCustsPerHour" placeholder="Enter minimum customers an hour for that store" minlength="1" min="0">
+        </fieldset>
+        <fieldset>
+          <label for ="maxCustsPerHour">Max cust an hour?:</label>
+          <input type="number" name="maxCustsPerHour" placeholder="Enter maximum customers an hour for that store" minlength="1" min="0">
+        </fieldset>
+        <fieldset>
+          <label for ="avgCookiesPerCust">Avg Cookies per Cust?:</label>
+          <input type="number"  name="avgCookiesPerCust" placeholder="Enter the average number of cookies per customers for that store" minlength="1" step="any" min=0>
+        </fieldset>
+        <button id="submit_btn" type="submit">add store info</button>
+      </form>
+    </div>
+
     <footer>
       <img class="main-banner" src="https://github.com/codefellows/seattle-201d29/blob/master/06-JS_objects_and_the_DOM/lab/assets/salmon.png?raw=true" width="350px">
     </footer>
+
     <script src="app.js"></script>
   </body>
 </html>
